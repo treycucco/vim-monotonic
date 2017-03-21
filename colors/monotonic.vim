@@ -32,6 +32,7 @@ hi Error        ctermbg=160  ctermfg=None cterm=None
 hi Todo         ctermbg=226  ctermfg=234  cterm=None
 hi ColorColumn  ctermbg=235  ctermfg=252  cterm=None
 hi Cursor       ctermbg=None ctermfg=None cterm=Reverse
+hi CursorLine   ctermbg=235  ctermfg=None cterm=None
 hi Directory    ctermbg=234  ctermfg=252  cterm=Underline
 hi ErrorMsg     ctermbg=160  ctermfg=None cterm=None
 hi VertSplit    ctermbg=238  ctermfg=238  cterm=None
