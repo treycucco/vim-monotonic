@@ -68,6 +68,7 @@ def get_rules(palette):
       rule("Todo", "warning", "background", "None"),
       rule("ColorColumn", "standback", "foreground", "None"),
       rule("Cursor", "None", "None", "Reverse"),
+      rule("CursorLine", "standback", "None", "None"),
       rule("Directory", "background", "foreground", "Underline"),
       rule("ErrorMsg", "error", "None", "None"),
       rule("VertSplit", "chrome", "chrome", "None"),
