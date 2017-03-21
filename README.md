@@ -7,3 +7,12 @@ Too many colors in syntax highlighting make it very hard to figure out what's im
 This theme aims to have subtle call outs to important things, while being easy on the eyes and promoting code reading.
 
 ![JavaScript example](./img/javascript.png)
+
+Install example (with Plug)
+
+    Plug 'treycucco/vim-monotonic'
+
+    ...
+
+    syntax on
+    colorscheme monotonic
