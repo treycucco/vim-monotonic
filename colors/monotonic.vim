@@ -55,6 +55,7 @@ if &background == "light"
   hi TabLine      ctermbg=249  ctermfg=234  cterm=None
   hi TabLineFill  ctermbg=249  ctermfg=234  cterm=None
   hi TabLineSel   ctermbg=255  ctermfg=000  cterm=Bold
+  hi Title        ctermbg=None ctermfg=None cterm=Bold
   hi WarningMsg   ctermbg=160  ctermfg=None cterm=None
 else
   hi Normal       ctermbg=234  ctermfg=252  cterm=None
@@ -98,5 +99,6 @@ else
   hi TabLine      ctermbg=238  ctermfg=252  cterm=None
   hi TabLineFill  ctermbg=238  ctermfg=252  cterm=None
   hi TabLineSel   ctermbg=234  ctermfg=015  cterm=Bold
+  hi Title        ctermbg=None ctermfg=None cterm=Bold
   hi WarningMsg   ctermbg=160  ctermfg=None cterm=None
 endif

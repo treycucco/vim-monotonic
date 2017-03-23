@@ -106,6 +106,7 @@ def get_rules(palette):
       rule("TabLine", "chrome", "foreground", "None"),
       rule("TabLineFill", "chrome", "foreground", "None"),
       rule("TabLineSel", "background", "very_standout", "Bold"),
+      rule("Title", "None", "None", "Bold"),
       rule("WarningMsg", "error", "None", "None"),
   ]
   return theme
