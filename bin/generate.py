@@ -15,6 +15,20 @@ DARK_PALETTE = {
     "very_standout": "015"
 }
 
+LIGHT_PALETTE = {
+    "background": "255",
+    "foreground": "234",
+    "string": "031",
+    "highlight": "039",
+    "comment": "244",
+    "error": "160",
+    "warning": "226",
+    "chrome": "249",
+    "standback": "254",
+    "standout": "232",
+    "very_standout": "000"
+}
+
 def to_rule(palette, group, bg, fg, term):
   return (
       "hi",
@@ -40,16 +54,16 @@ def get_format_string(max_widths):
   return " ".join(("{{{0}:{1}}}".format(n, w) for (n, w) in enumerate(max_widths)))
 
 
-def print_rules(rules):
+def print_rules(rules, indent):
   max_widths = get_max_widths(rules)
   format_string = get_format_string(max_widths)
 
   for rule in rules:
-    print(format_string.format(*rule).strip())
+    print("  " + format_string.format(*rule).strip())
 
 
 def get_rules(palette):
-  rule = partial(to_rule, DARK_PALETTE)
+  rule = partial(to_rule, palette)
   theme = [
       rule("Normal", "background", "foreground", "None"),
       rule("Visual", "background", "foreground", "Reverse"),
@@ -106,8 +120,6 @@ def main():
 " Maintainer: Trey Cucco
 " License:    BSD
 
-set background=dark
-
 hi clear
 if exists('syntax_on')
   syntax reset
@@ -116,8 +128,15 @@ endif
 let g:colors_name = 'monotonic'
 """)
 
+  indent = "  "
   dark_theme = get_rules(DARK_PALETTE)
-  print_rules(dark_theme)
+  light_theme = get_rules(LIGHT_PALETTE)
+
+  print('if &background == "light"')
+  print_rules(light_theme, indent)
+  print("else")
+  print_rules(dark_theme, indent)
+  print("endif")
 
 
 if __name__ == "__main__":
