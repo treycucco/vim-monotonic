@@ -59,7 +59,7 @@ def print_rules(rules, indent):
   format_string = get_format_string(max_widths)
 
   for rule in rules:
-    print("  " + format_string.format(*rule).strip())
+    print(indent + format_string.format(*rule).strip())
 
 
 def get_rules(palette):
@@ -93,10 +93,10 @@ def get_rules(palette):
       rule("LineNr", "None", "comment", "None"),
       rule("CursorLineNr", "None", "comment", "Bold"),
       rule("MatchParen", "None", "None", "Reverse"),
-      rule("Pmenu", "highlight", "chrome", "None"),
-      rule("PmenuSel", "highlight", "chrome", "Reverse"),
-      rule("PmenuSbar", "highlight", "highlight", "Reverse"),
-      rule("PmenuThumb", "foreground", "foreground", "None"),
+      rule("Pmenu", "standback", "highlight", "None"),
+      rule("PmenuSel", "standback", "highlight", "Reverse"),
+      rule("PmenuSbar", "standback", "standback", "None"),
+      rule("PmenuThumb", "chrome", "chrome", "None"),
       rule("Search", "highlight", "background", "None"),
       rule("SpecialKey", "None", "highlight", "None"),
       rule("SpellBad", "error", "None", "None"),
@@ -128,7 +128,10 @@ endif
 
 let g:colors_name = 'monotonic'
 """)
+  print_dark_only()
 
+
+def print_dark_and_light():
   indent = "  "
   dark_theme = get_rules(DARK_PALETTE)
   light_theme = get_rules(LIGHT_PALETTE)
@@ -138,6 +141,13 @@ let g:colors_name = 'monotonic'
   print("else")
   print_rules(dark_theme, indent)
   print("endif")
+
+
+def print_dark_only():
+  indent = ""
+  dark_theme = get_rules(DARK_PALETTE)
+  print("set background=dark")
+  print_rules(dark_theme, indent)
 
 
 if __name__ == "__main__":
