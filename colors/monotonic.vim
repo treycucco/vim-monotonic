@@ -41,7 +41,7 @@ if &background == "light"
   hi IncSearch    ctermbg=031  ctermfg=234  cterm=None
   hi LineNr       ctermbg=None ctermfg=245  cterm=None
   hi CursorLineNr ctermbg=None ctermfg=245  cterm=Bold
-  hi MatchParen   ctermbg=None ctermfg=None cterm=Bold
+  hi MatchParen   ctermbg=None ctermfg=None cterm=Reverse
   hi Pmenu        ctermbg=254  ctermfg=031  cterm=None
   hi PmenuSel     ctermbg=254  ctermfg=031  cterm=Reverse
   hi PmenuSbar    ctermbg=254  ctermfg=254  cterm=None
@@ -85,7 +85,7 @@ else
   hi IncSearch    ctermbg=039  ctermfg=234  cterm=None
   hi LineNr       ctermbg=None ctermfg=244  cterm=None
   hi CursorLineNr ctermbg=None ctermfg=244  cterm=Bold
-  hi MatchParen   ctermbg=None ctermfg=None cterm=Bold
+  hi MatchParen   ctermbg=None ctermfg=None cterm=Reverse
   hi Pmenu        ctermbg=235  ctermfg=039  cterm=None
   hi PmenuSel     ctermbg=235  ctermfg=039  cterm=Reverse
   hi PmenuSbar    ctermbg=235  ctermfg=235  cterm=None
