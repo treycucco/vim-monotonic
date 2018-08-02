@@ -1,4 +1,5 @@
 """Generates a vim color theme."""
+import sys
 from functools import partial, reduce
 
 
@@ -169,27 +170,6 @@ def get_rules(theme, palette):
     return [rule(group, bg, fg, term) for (group, bg, fg, term) in theme]
 
 
-def main():
-    """Main entry point for script."""
-    print("""" Vim color theme
-"
-" This file is generated, please check bin/generate.py.
-"
-" Name:       monotonic
-" Maintainer: Trey Cucco
-" License:    BSD
-
-hi clear
-if exists('syntax_on')
-  syntax reset
-endif
-
-let g:colors_name = 'monotonic'
-""")
-    # print_dark_only()
-    print_dark_and_light()
-
-
 def print_dark_and_light():
     """Prints the dark and light color themes."""
     indent = "  "
@@ -211,5 +191,38 @@ def print_dark_only():
     print_rules(dark_theme, indent)
 
 
+def print_light_only():
+    """Prints the light theme only."""
+    indent = ""
+    light_theme = get_rules(LIGHT_THEME, LIGHT_PALETTE)
+    print("set background=light")
+    print_rules(light_theme, indent)
+
+
+def main(theme):
+    """Main entry point for script."""
+    print("""" Vim color theme
+"
+" This file is generated, please check bin/generate.py.
+"
+" Name:       monotonic
+" Maintainer: Trey Cucco
+" License:    BSD
+
+hi clear
+if exists('syntax_on')
+  syntax reset
+endif
+
+let g:colors_name = 'monotonic'
+""")
+    if theme == 'dark':
+      print_dark_only()
+    elif theme == 'light':
+      print_light_only()
+    else:
+      print_dark_and_light()
+
+
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1])
