@@ -11,7 +11,7 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = 'monotonic'
+let g:colors_name = 'monotonic-light'
 
 set background=light
 hi Normal       ctermbg=255  ctermfg=234  cterm=None

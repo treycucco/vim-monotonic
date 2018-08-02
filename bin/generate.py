@@ -201,6 +201,10 @@ def print_light_only():
 
 def main(theme):
     """Main entry point for script."""
+    colors_name = "monotonic"
+    if theme == "light":
+        colors_name = colors_name + "-light"
+
     print("""" Vim color theme
 "
 " This file is generated, please check bin/generate.py.
@@ -214,14 +218,15 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = 'monotonic'
-""")
-    if theme == 'dark':
-      print_dark_only()
-    elif theme == 'light':
-      print_light_only()
+let g:colors_name = '{0}'
+""".format(colors_name))
+
+    if theme == "dark":
+        print_dark_only()
+    elif theme == "light":
+        print_light_only()
     else:
-      print_dark_and_light()
+        print_dark_and_light()
 
 
 if __name__ == "__main__":
